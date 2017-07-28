@@ -1,4 +1,4 @@
 :: ensure packages are installed
 npm install jspm -g
-npm install
+npm install jspm --save-dev
 jspm install
