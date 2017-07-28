@@ -3,14 +3,25 @@
 	<head>
 		<script src="jspm_packages/system.js"></script>
 		<script src="config.js"></script>
+		<style type="text/css">
+			#tinymcecontainer{border:dashed black 1px;}
+		</style>
 	</head>
 	<body>
 		
-	<h1>hello</h1>
+	<h1>There is only one tinymce editor</h1>
+	<p>However, after .remove() lenght is still 1 instead of 0</p>
+	<p>This generates a leak. Also, after removing, any click on the page causes <pre>Uncaught TypeError: Cannot read property 'getRng' of null</pre></p>
 	<div>
-		<div id="tinymce">tinymce goes here</div>
+		<div id="tinymcecontainer">
+			<div id="tinymce_editor">tinymce inline editor goes here</div>
+		</div>
+
+		<div id="editorCount"></div>
+		<div><a href="#" id="remove">remove</a></div>
+		<div><a href="#" id="recreate">recreate</a></div>
 	</div>
-	
+
 		<script type="text/javascript">
 			System.import('start');
 		</script>
