@@ -1,22 +1,18 @@
 import $ from 'jquery';
-import 'tinymce';
+// Import jquery.TinyMCE
 import 'tinymce/jquery.tinymce';
-import 'tinymce/plugins/autolink/plugin';
-import 'tinymce/plugins/link/plugin';
-import 'tinymce/plugins/lists/plugin';
-import 'tinymce/plugins/anchor/plugin';
-import 'tinymce/plugins/autoresize/plugin';
-import 'tinymce/plugins/code/plugin';
-import 'tinymce/plugins/directionality/plugin';
+
+// A theme is also required
+import 'tinymce/themes/modern/theme';
+
+// Any plugins you want to use has to be imported
 import 'tinymce/plugins/paste/plugin';
-import 'tinymce/themes/modern/theme.min';
+import 'tinymce/plugins/link/plugin';
 
-//tinyMCE.baseURL = '/scripts/plugins/tinymce/';
+tinyMCE.baseURL = "/jspm_packages/github/tinymce/tinymce-dist@4.6.4/";
 
-
-$(() => {
-	// Defer TinyMCE instantiation
-	setTimeout(function () {
-		$("#tinymce").tinymce();
-	}, 0);	
-})
+$("#tinymce").tinymce({
+  selector: '#tinymce',
+  themes: "modern",
+  plugins: ['paste', 'link']
+});
